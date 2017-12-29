@@ -1,9 +1,13 @@
-import materializeCSS from 'materialize-css/dist/css/materialize.min.css';
+import jquery from 'jquery/dist/jquery.min.js';
+import popperJS from 'popper.js';
+import boostrapCSS from 'bootstrap/dist/css/bootstrap.min.css';
+import boostrapJS from 'bootstrap/dist/js/bootstrap.min.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import reduxThunk from 'redux-thunk';
+import bodyCSS from './style/body.css';
 
 import reducers from './reducers';
 import App from './components/App';
@@ -18,5 +22,3 @@ ReactDOM.render(
   <Provider store={store}><App /></Provider>,
   document.querySelector('#root')
 );
-
-console.log(process.env.REACT_APP_STRIPE_KEY);

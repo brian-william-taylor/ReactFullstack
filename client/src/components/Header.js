@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments'
+import Login from './Login'
 
 
 class Header extends Component{
@@ -10,14 +11,14 @@ class Header extends Component{
       case null:
         return;
       case false:
-        return <li><a href="/auth/facebook">Login With Facebook</a></li>;
+        return <Login />;
       default:
         return [
-          <li key="1"><Payments /></li>,
-          <li key="2" style={{margin: '0 10px'}}>
+          <a key="1"><Payments /></a>,
+          <span key="2" className="navbar-text" style={{margin: '0 10px', color: 'white'}}>
             Credits: {this.props.auth.credits}
-          </li>,
-          <li key="3"><a href="/api/logout">Logout</a></li>
+          </span>,
+          <a key="3" className="btn btn-primary" href="/api/logout">Logout</a>
         ];
     }
   }
@@ -25,15 +26,13 @@ class Header extends Component{
 
   render(){
     return(
-      <nav>
-        <div className="nav-wrapper">
-          <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">
+      <nav className="navbar  navbar-dark bg-primary justify-content-betw">
+          <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-brand mb-0 h1">
             Emaily
           </Link>
-          <ul className="right">
-              {this.renderContent()}
-          </ul>
-        </div>
+          <form className="form-inline">
+            {this.renderContent()}
+          </form>
       </nav>
     )
   }

@@ -5,6 +5,7 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
+import Login from './Login';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 
@@ -22,6 +23,7 @@ class App extends Component {
             <Header />
             <div className="container">
               <Route exact path="/" component={Landing} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/surveys" component={Dashboard} />
               <Route path="/surveys/new" component={SurveyNew} />
             </div>
@@ -33,4 +35,4 @@ class App extends Component {
 };
 
 
-export default  connect(null, actions)(App);
+export default connect(null, actions)(App);

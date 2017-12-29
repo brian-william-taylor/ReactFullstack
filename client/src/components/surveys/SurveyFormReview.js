@@ -10,9 +10,9 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
 
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
-      <div key={name}>
+      <div htmlFor={label} key={name}>
         <label>{label}</label>
-        <div>
+        <div id={label}>
           {formValues[name]}
         </div>
       </div>
@@ -22,24 +22,28 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history}) => {
 
 
   return (
-    <div>
+    <div className="container">
       <h5>Please confirm your entries</h5>
         {reviewFields}
-      <button
-        className="yellow darken-3 white-text btn-flat"
-        onClick={onCancel}
-      >
-        Back
-      </button>
 
-      <button
-      // () => is being used to stop submitSurvey submit from automatically running on load
-      onClick={() => submitSurvey(formValues, history)}
-        className="green right white-text btn-flat"
-      >
-        Send Survey
-        <i className="material-icons right">email</i>
-      </button>
+      <div className="row justify-content-between">
+        <div className=''>
+          <button className="btn btn-warning" onClick={onCancel}>
+            Back
+          </button>
+        </div>
+
+
+        <div className="">
+          <button
+          // () => is being used to stop submitSurvey submit from automatically running on load
+          onClick={() => submitSurvey(formValues, history)}
+            className="btn btn-success"
+          >
+            Send Survey
+          </button>
+        </div>
+      </div>
     </div>
   )
 };

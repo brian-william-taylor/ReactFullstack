@@ -3,11 +3,25 @@
 import React from 'react';
 
 export default ({ input, label, meta: { error, touched } }) => {
+
+  function test(){
+    if(error && touched){
+          return 'form-control is-invalid';
+    }
+    else if(!error && touched){
+      return 'form-control is-valid';
+    }
+    else{
+      return "form-control";
+    }
+
+  }
+
   return (
-    <div>
-      <label>{label}</label>
-      <input {...input} style={{ marginBottom: '5px' }} />
-      <div className="red-text" style={{ marginBottom: '20px' }}>
+    <div className="row" style={{ marginBottom: '20px' }}>
+      <label htmlFor={label}>{label}</label>
+      <input id={label} className={test()} {...input} style={{ marginBottom: '5px' }} />
+      <div className="invalid-feedback" style={{ marginBottom: '20px' }}>
         {touched && error}
       </div>
     </div>
