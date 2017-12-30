@@ -1,4 +1,4 @@
-body { padding-top: 0px; }
+body { padding-top: 60px; }
 
 .invalid-feedback{
   color: red;
@@ -6,4 +6,8 @@ body { padding-top: 0px; }
 
 .card{
   margin: 20px;
+}
+
+.modal-backdrop {
+  z-index: -1;
 }

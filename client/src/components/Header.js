@@ -26,7 +26,7 @@ class Header extends Component{
 
   render(){
     return(
-      <nav className="navbar  navbar-dark bg-primary justify-content-betw">
+      <nav className="navbar fixed-top navbar-dark bg-dark justify-content-betw">
           <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-brand mb-0 h1">
             Emaily
           </Link>
