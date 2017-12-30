@@ -3,3 +3,7 @@ body { padding-top: 0px; }
 .invalid-feedback{
   color: red;
 }
+
+.card{
+  margin: 20px;
+}
